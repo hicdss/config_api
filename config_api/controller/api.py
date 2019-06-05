@@ -2,7 +2,7 @@
 
 from config_api.main import app  # pylint: disable=cyclic-import
 from config_api.model.environment_config import ENVIRONMENTS
-from config_api.infrastructure.crud import get_app
+from config_api.infrastructure.crud import get_application
 from config_api.infrastructure.crud import get_env
 from config_api.infrastructure.crud import get_param
 from config_api.infrastructure.response import json_response
