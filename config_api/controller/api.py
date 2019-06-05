@@ -36,7 +36,7 @@ def rest_get_env(application, env):
     return get_env(application, env)
 
 
-@app.route('/config-api/<app>/<env>/<param>', methods=['GET'], endpoint='get_param')
+@app.route('/config-api/<application>/<env>/<param>', methods=['GET'], endpoint='get_param')
 @json_response
 def rest_get_param(application, env, param):
     """GET: parameter by application and environment"""
