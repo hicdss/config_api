@@ -1,6 +1,6 @@
 # config_api
 
-Config_api is a simple microservice that server as a single-source-of-truth about various elements of your infrastructure and environments. For example it can be used as port mapping configuration of docker containers, filesystem paths, volume names, network interfaces etc. etc.
+Config_api is a simple microservice that serves as a single-source-of-truth about various elements of your infrastructure and environments. For example it can be used as port mapping configuration of docker containers, filesystem paths, volume names, network interfaces etc. etc.
 
 ## API endpoints
 
@@ -35,9 +35,9 @@ This file should be a valid python file with `ENVIRONMENTS` variable defined as 
 
 ```python
 ENVIRONMENTS = {
-    'webapp' : {
-        'staging' : {
-            'docker_app_port': 8181,
+    'webapp' : {  ## APPLICATION LEVEL
+        'staging' : {  ## ENVIRONMENT LEVEL
+            'docker_app_port': 8181, ## PARAMETER LEVEL
             'docker_sql_port': 3307,
         },
         'dev' : {
@@ -118,6 +118,5 @@ Example configuration for Apache 2.4 would be:
 # Development
 
 ```bash
-make build 
-make run
+make build && make run
 ```

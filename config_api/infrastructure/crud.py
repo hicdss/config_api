@@ -22,7 +22,7 @@ def get_env(application, env):
         return ENVIRONMENTS[application][env]
     except KeyError:
         raise InvalidParameterException(
-            "ERROR: Invalid applicationlication name (%s) or environment name (%s) supplied." % (  # noqa
+            "ERROR: Invalid applicationlication name (%s) or environment name (%s) supplied." % (  # noqa pylint: disable=line-too-long
                 application.__repr__(),
                 env.__repr__()
             ),

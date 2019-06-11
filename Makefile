@@ -14,7 +14,7 @@ logs:
 	docker logs config_api
 
 test_in_docker:
-	docker run -w /config_api -v $(shell pwd):/config_api -t javatestdb:49002/python-linter:latest bash -c "pylint config_api && pycodestyle config_api"
+	docker run -w /config_api -v $(shell pwd):/config_api -t hicrondss/python-linter:latest bash -c "pylint config_api && pycodestyle config_api"
 
 test:
 	pylint config_api

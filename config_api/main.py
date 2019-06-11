@@ -1,4 +1,4 @@
-"""MSQP local environment configuration API"""
+"""Environment configuration API"""
 
 from flask import Flask
 
