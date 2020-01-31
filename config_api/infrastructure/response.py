@@ -20,6 +20,9 @@ def _set_headers(response, override):
 def json_response(func):
     """Wrapper for JSON reponses"""
     def wrapper(*args, **kwargs):
-        response = Response(dumps(func(*args, **kwargs)))
+        evalutated_func = func(*args, **kwargs)
+        if evalutated_func is None:
+            return Response(None, 404)
+        response = Response(dumps(evalutated_func))
         return _set_headers(response, {'Content-Type': 'application/json'})
     return wrapper
