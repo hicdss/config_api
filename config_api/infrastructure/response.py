@@ -17,12 +17,14 @@ def _set_headers(response, override):
     return response
 
 
-def json_response(func):
+def json_or_plaintext_response(func):
     """Wrapper for JSON reponses"""
     def wrapper(*args, **kwargs):
         evalutated_func = func(*args, **kwargs)
         if evalutated_func is None:
             return Response(None, 404)
-        response = Response(dumps(evalutated_func))
-        return _set_headers(response, {'Content-Type': 'application/json'})
+        if isinstance(evalutated_func, (dict, list)):
+            response = Response(dumps(evalutated_func))
+            return _set_headers(response, {'Content-Type': 'application/json'})
+        return str(evalutated_func)
     return wrapper
